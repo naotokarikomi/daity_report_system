@@ -3,6 +3,8 @@ package models;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import java.time.LocalTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -93,5 +95,16 @@ public class Report {
      */
     @Column(name = JpaConst.REP_COL_UPDATED_AT, nullable = false)
     private LocalDateTime updatedAt;
+
+    /**
+     * 出勤日時
+     */
+    @Column(name = JpaConst.REP_COL_COMING, nullable = false)
+    private LocalTime coming;
+    /**
+     * 退勤日時
+     */
+    @Column(name = JpaConst.REP_COL_LEAVING, nullable = false)
+    private LocalTime leaving;
 
 }

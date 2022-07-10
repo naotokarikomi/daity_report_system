@@ -14,6 +14,8 @@ import services.ReportService;
 
 import java.time.LocalDate;
 
+import java.time.LocalTime;
+
 import constants.MessageConst;
 
 /**
@@ -108,6 +110,11 @@ public class ReportAction extends ActionBase {
             //セッションからログイン中の従業員情報を取得
             EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
 
+            //coming leaving null対策？
+            LocalTime coming = LocalTime.parse(getRequestParam(AttributeConst.REP_COMING));
+            LocalTime leaving = LocalTime.parse(getRequestParam(AttributeConst.REP_LEAVING));
+
+
             //パラメータの値をもとに日報情報のインスタンスを作成する
             ReportView rv = new ReportView(
                     null,
@@ -116,7 +123,10 @@ public class ReportAction extends ActionBase {
                     getRequestParam(AttributeConst.REP_TITLE),
                     getRequestParam(AttributeConst.REP_CONTENT),
                     null,
-                    null);
+                    null,
+                    coming,
+                    leaving);
+
 
             //日報情報登録
             List<String> errors = service.create(rv);
@@ -212,6 +222,9 @@ public class ReportAction extends ActionBase {
             rv.setReportDate(toLocalDate(getRequestParam(AttributeConst.REP_DATE)));
             rv.setTitle(getRequestParam(AttributeConst.REP_TITLE));
             rv.setContent(getRequestParam(AttributeConst.REP_CONTENT));
+            rv.setComing(toLocalTime(getRequestParam(AttributeConst.REP_COMING)));
+            rv.setLeaving(toLocalTime(getRequestParam(AttributeConst.REP_LEAVING)));
+
 
             //日報データを更新する
             List<String> errors = service.update(rv);

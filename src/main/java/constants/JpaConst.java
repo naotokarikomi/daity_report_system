@@ -40,6 +40,9 @@ public interface JpaConst {
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
 
+    String REP_COL_COMING = "coming";//出勤時間
+    String REP_COL_LEAVING ="leaving";//退勤時間
+
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
     String ENTITY_REP = "report"; //日報
