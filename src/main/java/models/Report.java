@@ -107,4 +107,10 @@ public class Report {
     @Column(name = JpaConst.REP_COL_LEAVING, nullable = false)
     private LocalTime leaving;
 
+    /**
+     * 承認
+     */
+    @Column(name = JpaConst.REP_COL_APPROVAL, nullable = false)
+    private Integer approval;
+
 }

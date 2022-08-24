@@ -64,4 +64,9 @@ public class ReportView {
      * 退勤日時
      */
     private LocalTime leaving;
+
+    /**
+     * 承認
+     */
+    private Integer approval;
 }

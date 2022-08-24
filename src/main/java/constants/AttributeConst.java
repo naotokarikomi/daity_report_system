@@ -37,6 +37,8 @@ public enum AttributeConst {
     ROLE_ADMIN(1),
     ROLE_GENERAL(0),
 
+    ROLE_SUPERIOR(2),
+
     //削除フラグ
     DEL_FLAG_TRUE(1),
     DEL_FLAG_FALSE(0),
@@ -51,7 +53,9 @@ public enum AttributeConst {
     REP_CONTENT("content"),
 
     REP_COMING("coming"),
-    REP_LEAVING("leaving");
+    REP_LEAVING("leaving"),
+
+    REP_APPROVAL(1);
 
     private final String text;
     private final Integer i;

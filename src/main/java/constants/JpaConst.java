@@ -26,6 +26,9 @@ public interface JpaConst {
 
     int ROLE_ADMIN = 1; //管理者権限ON(管理者)
     int ROLE_GENERAL = 0; //管理者権限OFF(一般)
+
+    int ROLE_SUPERIOR = 2 ; //上司
+
     int EMP_DEL_TRUE = 1; //削除フラグON(削除済み)
     int EMP_DEL_FALSE = 0; //削除フラグOFF(現役)
 
@@ -42,6 +45,11 @@ public interface JpaConst {
 
     String REP_COL_COMING = "coming";//出勤時間
     String REP_COL_LEAVING ="leaving";//退勤時間
+
+    String REP_COL_APPROVAL ="approval";//承認
+
+    int REP_APPROVAL = 1;//承認on
+    int REP_NOTAPPROVAL = 0; //非承認
 
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
