@@ -2,10 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="constants.ForwardConst" %>
+<%@ page import="constants.AttributeConst" %>
 
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commEdt" value="${ForwardConst.CMD_EDIT.getValue()}" />
+<c:set var="commUpd2" value="${ForwardConst.CMD_UPDATE2.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -54,6 +56,14 @@
             <p>
                 <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を編集する</a>
             </p>
+        </c:if>
+
+        <c:if test="${sessionScope.login_employee.adminFlag == AttributeConst.ROLE_SUPERIOR.getIntegerValue()}">
+            <c:if test="${report.approval == 0}">
+                    <p>
+                        <a href="<c:url value='?action=${actRep}&command=${commUpd2}&id=${report.id}' />">承認する</a>
+                    </p>
+            </c:if>
         </c:if>
 
         <p>
